@@ -11,6 +11,8 @@ routes.get('/about', (req, res) => {
 
 routes.use('/api-docs', require('./swagger'));
 routes.use('/classes', require('./classes'));
+routes.use('/users', require('./users'));
+
 
 
 module.exports = routes;

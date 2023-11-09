@@ -240,6 +240,59 @@
           }
         }
       }
+    },
+    "/users/": {
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "user",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "fname": {
+                  "type": "string",
+                  "example": ""
+                },
+                "lname": {
+                  "type": "string",
+                  "example": ""
+                },
+                "username": {
+                  "type": "string",
+                  "example": ""
+                },
+                "password": {},
+                "classlist": {
+                  "type": "array",
+                  "example": [
+                    null
+                  ],
+                  "items": {
+                    "type": "function"
+                  }
+                }
+              },
+              "required": [
+                "fname",
+                "lname",
+                "username",
+                "password",
+                "classlist"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
     }
   }
 }
