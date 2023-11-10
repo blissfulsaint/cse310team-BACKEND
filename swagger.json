@@ -257,30 +257,44 @@
         "description": "",
         "parameters": [
           {
-            "name": "body",
+            "name": "user",
             "in": "body",
             "schema": {
               "type": "object",
               "properties": {
-                "department": {
-                  "example": "any"
+                "fname": {
+                  "type": "string",
+                  "example": ""
                 },
-                "code": {
-                  "example": "any"
+                "lname": {
+                  "type": "string",
+                  "example": ""
                 },
-                "name": {
-                  "example": "any"
+                "username": {
+                  "type": "string",
+                  "example": ""
                 },
-                "section": {
-                  "example": "any"
+                "password": {
+                  "type": "string",
+                  "example": ""
                 },
-                "capacity": {
-                  "example": "any"
-                },
-                "students": {
-                  "example": "any"
+                "classlist": {
+                  "type": "array",
+                  "example": [
+                    ""
+                  ],
+                  "items": {
+                    "type": "string"
+                  }
                 }
-              }
+              },
+              "required": [
+                "fname",
+                "lname",
+                "username",
+                "password",
+                "classlist"
+              ]
             }
           }
         ],
@@ -325,6 +339,47 @@
             "in": "path",
             "required": true,
             "type": "string"
+          },
+          {
+            "name": "user",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "fname": {
+                  "type": "string",
+                  "example": ""
+                },
+                "lname": {
+                  "type": "string",
+                  "example": ""
+                },
+                "username": {
+                  "type": "string",
+                  "example": ""
+                },
+                "password": {
+                  "type": "string",
+                  "example": ""
+                },
+                "classlist": {
+                  "type": "array",
+                  "example": [
+                    ""
+                  ],
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "fname",
+                "lname",
+                "username",
+                "password",
+                "classlist"
+              ]
+            }
           }
         ],
         "responses": {

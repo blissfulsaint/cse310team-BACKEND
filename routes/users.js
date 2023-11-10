@@ -40,17 +40,17 @@ routes.post('/', (req, res) => {
     #swagger.parameters['user'] = {
         in: 'body',
         schema: {
-            $fname: String,
-            $lname: String,
-            $username: String,
-            $password: String,
+            $fname: '',
+            $lname: '',
+            $username: '',
+            $password: '',
             $classlist: [
-                $String
+                ''
             ]
         }
     }
     */
-    const { department, code, name, section, capacity, students } = req.body; // Assuming you are sending the user data in the request body
+    const { fname, lname, username, password, classlist } = req.body; // Assuming you are sending the user data in the request body
 
     // Create a new instance of the User model
     const newUser = new db.User({
@@ -77,12 +77,12 @@ routes.put('/:_id', (req, res) => {
     #swagger.parameters['user'] = {
         in: 'body',
         schema: {
-            $fname: String,
-            $lname: String,
-            $username: String,
-            $password: String,
+            $fname: '',
+            $lname: '',
+            $username: '',
+            $password: '',
             $classlist: [
-                $String
+                ''
             ]
         }
     }
