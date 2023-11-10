@@ -14,5 +14,4 @@ routes.use('/classes', require('./classes'));
 routes.use('/users', require('./users'));
 
 
-
 module.exports = routes;
