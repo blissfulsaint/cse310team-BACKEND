@@ -40,12 +40,12 @@ routes.post('/', (req, res) => {
     #swagger.parameters['user'] = {
         in: 'body',
         schema: {
-            $fname: String,
-            $lname: String,
-            $username: String,
-            $password: String,
+            $fname: '',
+            $lname: '',
+            $username: '',
+            $password: '',
             $classlist: [
-                $String
+                null
             ]
         }
     }
@@ -77,12 +77,12 @@ routes.put('/:_id', (req, res) => {
     #swagger.parameters['user'] = {
         in: 'body',
         schema: {
-            $fname: String,
-            $lname: String,
-            $username: String,
-            $password: String,
+            $fname: '',
+            $lname: '',
+            $username: '',
+            $password: '',
             $classlist: [
-                $String
+                null
             ]
         }
     }
