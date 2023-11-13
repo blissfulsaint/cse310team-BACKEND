@@ -129,7 +129,7 @@ routes.post('/', (req, res) => {
             $username: '',
             $password: '',
             $classlist: [
-                ''
+                null
             ]
         }
     }
@@ -166,7 +166,7 @@ routes.put('/:_id', (req, res) => {
             $username: '',
             $password: '',
             $classlist: [
-                ''
+                null
             ]
         }
     }
