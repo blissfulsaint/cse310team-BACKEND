@@ -32,6 +32,22 @@ routes.get('/:_id', (req, res) => {
         });
 });
 
+routes.get('/classInfo/:_id', (req, res) => {
+    const _id = req.params._id; // Get the class ID from the URL
+
+    // Use Mongoose to find the class by ID and exclude the 'students' field
+    db.Class.findById(_id).select('-students')
+        .then((classItem) => {
+            if (!classItem) {
+                return res.status(404).json({ message: 'Class not found' });
+            }
+            res.json(classItem);
+        })
+        .catch((err) => {
+            res.status(500).send('Error retrieving the class from the database');
+        });
+});
+
 // Create a new class
 routes.post('/', (req, res) => {
     /* 
