@@ -241,6 +241,9 @@
         }
       }
     },
+<<<<<<< HEAD
+    "/classes/classInfo/{_id}": {
+=======
     "/users/": {
       "post": {
         "description": "",
@@ -362,6 +365,7 @@
           }
         }
       },
+>>>>>>> 88d8081a6c8cbe942a062282e7c5564802e67a44
       "get": {
         "description": "",
         "parameters": [
@@ -383,6 +387,8 @@
             "description": "Internal Server Error"
           }
         }
+<<<<<<< HEAD
+=======
       },
       "delete": {
         "description": "",
@@ -405,6 +411,7 @@
             "description": "Internal Server Error"
           }
         }
+>>>>>>> 88d8081a6c8cbe942a062282e7c5564802e67a44
       }
     }
   }
