@@ -5,10 +5,10 @@ const doc = {
         title: 'Prayer Selector API',
         description: 'This API allows for the user to get, update, add, and delete data from the Prayer Selector database',
     },
-    // host: 'cse341-g8lt.onrender.com',
-    // schemes: ['https'],
-    host: 'localhost:3000',
-    schemes: ['http'],
+    host: 'prayerselectorapi.onrender.com',
+    schemes: ['https'],
+    // host: 'localhost:3000',
+    // schemes: ['http'],
 };
 
 const outputFile = './swagger.json';
