@@ -5,10 +5,10 @@
     "description": "This API allows for the user to get, update, add, and delete data from the Prayer Selector database",
     "version": "1.0.0"
   },
-  "host": "localhost:3000",
+  "host": "prayerselectorapi.onrender.com",
   "basePath": "/",
   "schemes": [
-    "http"
+    "https"
   ],
   "paths": {
     "/": {
@@ -241,9 +241,30 @@
         }
       }
     },
-<<<<<<< HEAD
     "/classes/classInfo/{_id}": {
-=======
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
     "/users/": {
       "post": {
         "description": "",
@@ -365,7 +386,6 @@
           }
         }
       },
->>>>>>> 88d8081a6c8cbe942a062282e7c5564802e67a44
       "get": {
         "description": "",
         "parameters": [
@@ -387,8 +407,6 @@
             "description": "Internal Server Error"
           }
         }
-<<<<<<< HEAD
-=======
       },
       "delete": {
         "description": "",
@@ -411,7 +429,6 @@
             "description": "Internal Server Error"
           }
         }
->>>>>>> 88d8081a6c8cbe942a062282e7c5564802e67a44
       }
     },
     "/users/userClasses/{_id}": {
