@@ -79,14 +79,22 @@ routes.put('/:_id', (req, res) => {
 });
 
 // Get classlist by id
-routes.get('/', (req, res) => {
+routes.get('/userClasses/:_id', (req, res) => {
     // Use Mongoose to find all classes from a user id
-    db.User.find({})
-        .then((classlist) => {
-            res.json(classlist); // Return the classlist as JSON
+    const _id = req.params._id; // Get the user ID from the URL
+
+    // Use Mongoose to find the user by ID
+    db.User.findById(_id)
+        .then((userItem) => {
+            if (!userItem) {
+                return res.status(404).json({ message: 'User not found' });
+            } else if (!userItem.classlist) {
+                return res.status(404).json({ message: 'Classlist not found' });
+            }
+            res.json(userItem.classlist);
         })
         .catch((err) => {
-            res.status(500).send('Error retrieving the class list from the database');
+            res.status(500).send('Error retrieving the classlist from the database');
         });
 });
 
