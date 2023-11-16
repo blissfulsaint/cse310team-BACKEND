@@ -3,6 +3,8 @@ const routes = express();
 
 routes.use(express.json());
 
+const { jwt, verifyToken, secretKey } = require('../middleware/middleware');
+
 const db = require('../models');
 
 // Add routes here
@@ -212,6 +214,46 @@ routes.delete('/:_id', (req, res) => {
             res.status(500).send('Error deleting the user');
         });
 });
+
+// Route to verify an existing user and log them in / provide a JWT for frontend
+routes.post('/login', async (req, res) => {
+    const { username, password } = req.body;
+
+    const user = await db.User.findOne({ username, password });
+
+    if (!user) {
+        return res.status(401).json({ message: 'Invalid username or password.' });
+    }
+
+    // Generate and return a JWT
+    const token = jwt.sign({ id: user._id }, secretKey, { expiresIn: 86400 }); // Token expires in 24 hours
+    res.json({ token });
+});
+
+// Route to get class information for each class in a user's classlist
+routes.get('/:userId/classesInfo', async (req, res) => {
+    try {
+        const userId = req.params.userId;
+
+        // Find the user by ID to get their classlist
+        const user = await db.User.findById(userId);
+
+        if (!user) {
+            return res.status(404).json({ message: 'User not found' });
+        }
+
+        // Extract the class IDs from the user's classlist
+        const classIds = user.classlist;
+
+        // Use the class IDs to find the corresponding class information (excluding students array)
+        const classes = await db.Class.find({ _id: { $in: classIds } }, { students: 0 });
+
+        res.json({ classes });
+    } catch (error) {
+        console.error('Error fetching user classes: ', error);
+        res.status(500).json({ message: 'Internal server error' });
+    }
+})
 
 
 module.exports = routes;
