@@ -1,22 +1,6 @@
 const express = require('express');
 const app = express();
 const port = process.env.PORT || 3000;
-const cors = require('cors');
-
-var whitelist = [
-    'https://classroulette.netlify.app' // Netlify app
-]
-
-var corsOptions = {
-    // origin: '*', // Testing only, comment out before pushing
-    origin: function (origin, callback) {
-        if (whitelist.indexOf(origin) !== -1) {
-            callback(null, true)
-        } else {
-            callback(new Error('Not allowed by CORS'))
-        }
-    }
-}
 
 const db = require('./models');
 db.mongoose
@@ -29,8 +13,13 @@ db.mongoose
         process.exit();
     })
 
-// Apply CORS middleware globally
-app.use(cors(corsOptions));
+// Allow Netlify app to access the render app
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', 'https://classroulette.netlify.app');
+    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+    res.header('Access-Control-Allow-Headers', 'Content-Type');
+    next();
+});
 
 app.use('/', require('./routes'));
 
