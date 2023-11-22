@@ -5,7 +5,7 @@ const cors = require('cors');
 
 var whitelist = [
     '157.201.96.100', // Brandon's Laptop
-    'https://prayerselector.netlify.app' // Netlify app
+    'https://classroulette.netlify.app' // Netlify app
 ]
 
 var corsOptions = {
