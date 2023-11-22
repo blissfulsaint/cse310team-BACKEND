@@ -4,7 +4,6 @@ const port = process.env.PORT || 3000;
 const cors = require('cors');
 
 var whitelist = [
-    '157.201.96.100', // Brandon's Laptop
     'https://classroulette.netlify.app' // Netlify app
 ]
 
