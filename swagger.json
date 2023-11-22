@@ -5,7 +5,7 @@
     "description": "This API allows for the user to get, update, add, and delete data from the Prayer Selector database",
     "version": "1.0.0"
   },
-  "host": "prayerselectorapi.onrender.com",
+  "host": "classrouletteapi.onrender.com",
   "basePath": "/",
   "schemes": [
     "https"
