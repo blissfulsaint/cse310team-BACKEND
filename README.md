@@ -17,7 +17,8 @@ Brandon Lisonbee, Jaelee Jeong, Jacob Holst, Jeremiah Franco, Kaleb Bradford, Ty
 # Useful Websites
 
 - [Chat GPT](https://chat.openai.com/)
-- [Web Site Name](http://url.link.goes.here)
+- [Backend Routing](https://docs.typo3.org/m/typo3/reference-coreapi/main/en-us/ApiOverview/Backend/BackendRouting.html)
+- [Codecademy](https://www.codecademy.com/article/back-end-architecture)
 
 # Future Work
 
