@@ -4,6 +4,8 @@
 
 This is a project completed by a team of engineers. Through creating this project, we hope to explore tools that are available to us as well as learn new languages. Professors can use this software in order to be able to randomly select a student for various reasons, such as saying a prayer or answering a question. When they go to the website, professors can add a class and its students, then press the "Select Student" button to have the program randomly select a student from the list. 
 
+[Software Demo Video](http://youtube.link.goes.here)
+
 # Development Environment
 
 This backend software will be using Javascript. We will then be using MongoDB to host the backend software. The API is on Render.
