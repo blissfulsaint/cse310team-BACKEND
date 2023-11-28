@@ -1,15 +1,14 @@
 const express = require('express');
+var cors = require('cors');
 const app = express();
 const port = process.env.PORT || 3000;
-const cors = require('cors');
 
 var whitelist = [
-    '157.201.96.100', // Brandon's Laptop
-    'https://prayerselector.netlify.app' // Netlify app
+    'https://classroulette.netlify.app'
 ]
 
 var corsOptions = {
-    // origin: '*', // Testing only, comment out before pushing
+    // origin: '*',
     origin: function (origin, callback) {
         if (whitelist.indexOf(origin) !== -1) {
             callback(null, true)
@@ -30,8 +29,22 @@ db.mongoose
         process.exit();
     })
 
-// Apply CORS middleware globally
 app.use(cors(corsOptions));
+
+// // Allow Netlify app to access the render app
+// app.use((req, res, next) => {
+//     // res.header('Access-Control-Allow-Origin', '*');
+//     res.header('Access-Control-Allow-Origin', 'https://classroulette.netlify.app');
+//     res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+//     res.header('Access-Control-Allow-Headers', 'Content-Type');
+
+//     // Handle preflight requests
+//     if (req.method === 'OPTIONS') {
+//         res.status(200).end();
+//     } else {
+//         next();
+//     }
+// });
 
 app.use('/', require('./routes'));
 
