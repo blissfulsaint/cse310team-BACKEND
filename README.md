@@ -6,7 +6,7 @@ This is a project completed by a team of engineers. Through creating this projec
 
 # Development Environment
 
-This backend software will be using Javascript. We will then be using MongoDB to host the backend software. 
+This backend software will be using Javascript. We will then be using MongoDB to host the backend software. The API is on Render.
 
 # Collaborators
 
