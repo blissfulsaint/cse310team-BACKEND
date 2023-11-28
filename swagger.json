@@ -5,10 +5,10 @@
     "description": "This API allows for the user to get, update, add, and delete data from the Prayer Selector database",
     "version": "1.0.0"
   },
-  "host": "classrouletteapi.onrender.com",
+  "host": "localhost:3000",
   "basePath": "/",
   "schemes": [
-    "https"
+    "http"
   ],
   "paths": {
     "/": {
@@ -355,13 +355,15 @@
                   "type": "string",
                   "example": ""
                 },
-                "password": {
-                  "type": "string",
-                  "example": ""
-                },
+                "password": {},
                 "classlist": {
                   "type": "array",
-                  "items": {}
+                  "example": [
+                    null
+                  ],
+                  "items": {
+                    "type": "function"
+                  }
                 }
               },
               "required": [
@@ -440,6 +442,96 @@
             "in": "path",
             "required": true,
             "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/users/updateUserInfo/{_id}": {
+      "put": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "user",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "fname": {
+                  "type": "string",
+                  "example": ""
+                },
+                "lname": {
+                  "type": "string",
+                  "example": ""
+                },
+                "username": {
+                  "type": "string",
+                  "example": ""
+                }
+              },
+              "required": [
+                "fname",
+                "lname",
+                "username"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/users/updatePassword/{_id}": {
+      "put": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "user",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "password": {
+                  "type": "string",
+                  "example": ""
+                }
+              },
+              "required": [
+                "password"
+              ]
+            }
           }
         ],
         "responses": {

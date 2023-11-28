@@ -165,28 +165,56 @@ routes.post('/', (req, res) => {
         });
 });
 
-// Update a user by _id
-routes.put('/:_id', (req, res) => {
+// Update a user's info by _id
+routes.put('/updateUserInfo/:_id', (req, res) => {
     /* 
     #swagger.parameters['user'] = {
         in: 'body',
         schema: {
             $fname: '',
             $lname: '',
-            $username: '',
-            $password: '',
-            $classlist: [
-                null
-            ]
+            $username: ''
+        }
+    }
+    */
+   
+    const userId = req.params._id; // Get the user _id from the URL
+    const updatedData = {
+        fname: req.body.fname,
+        lname: req.body.lname,
+        username: req.body.username
+    }; // New data for the user
+
+    // Use Mongoose to find and update the user by _id
+    db.User.findByIdAndUpdate(userId, { $set: updatedData }, { new: true })
+        .then((updatedUser) => {
+            if (!updatedUser) {
+                return res.status(404).json({ message: 'User not found' });
+            }
+            res.json(updatedUser);
+        })
+        .catch((err) => {
+            res.status(500).send('Error updating the user');
+        });
+});
+
+
+// Update a user's password by _id
+routes.put('/updatePassword/:_id', (req, res) => {
+    /* 
+    #swagger.parameters['user'] = {
+        in: 'body',
+        schema: {
+            $password: ''
         }
     }
     */
    
     const userId = req.params._id; // Get the user_id from the URL
-    const updatedData = req.body; // New data for the user
+    const updatedData = req.body.password; // New data for the user
 
     // Use Mongoose to find and update the user by _id
-    db.User.findByIdAndUpdate(userId, updatedData, { new: true })
+    db.User.findByIdAndUpdate(userId, {password: updatedData})
         .then((updatedUser) => {
             if (!updatedUser) {
                 return res.status(404).json({ message: 'User not found' });
