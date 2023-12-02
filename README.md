@@ -22,6 +22,6 @@ Brandon Lisonbee, Jaelee Jeong, Jacob Holst, Jeremiah Franco, Kaleb Bradford, Ty
 
 # Future Work
 
-- Something to add in the future would be having the program display confetti after a student is chosen.
-- We could also allow users to change the color theme with options, such as dark and light mode.
-- In the future, there could be an input area to allow professors to input the number of students they want to select. 
+- Something to add in the future would be to optimize the database so retrieval of data is faster when first loading the webpage.
+- We could also try caching in the backend to improve the loading time.
+- Another thing to edit in the future would be to run a scalability test to ensure the application does not run out of memory.
